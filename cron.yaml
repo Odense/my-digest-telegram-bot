@@ -1,0 +1,8 @@
+cron:
+- description: "Deliver due topics to subscribers"
+  url: /jobs/deliver-due
+  schedule: every 15 minutes
+  timezone: Europe/Kiev
+  retry_parameters:
+    min_backoff_seconds: 60
+    max_doublings: 3

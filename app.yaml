@@ -1,0 +1,15 @@
+runtime: python312
+entrypoint: gunicorn -b :$PORT -t 120 main:app
+
+instance_class: F1
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 2
+
+env_variables:
+  # IMPORTANT: Move these to Secret Manager for production use.
+  # These are placeholders — set real values before deploying.
+  TELEGRAM_BOT_TOKEN: "bot8669996578:AAGg59rdx_geWazXMpWN9makBEUdH8QzeOo"
+  TELEGRAM_WEBHOOK_SECRET: "a-random-secret-string"
+  JOBS_AUTH_TOKEN: "another-random-secret"
